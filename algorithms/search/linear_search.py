@@ -1,7 +1,5 @@
-
-
 def linear_search(array, element):
-    """To search a given element in array[]
+    """Linear Search.
 
     Time Complexity:    O(n)
     Space Complexity:   O(1)

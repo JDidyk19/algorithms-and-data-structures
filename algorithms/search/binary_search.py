@@ -1,7 +1,5 @@
-
-
 def binary_search_iterative(array, element):
-    """Iterative search a given element in array[]
+    """Binary Search (Iterative).
 
     Time Complexity:    O(log(n))
     Space Complexity:   O(1)
@@ -20,7 +18,7 @@ def binary_search_iterative(array, element):
 
 
 def binary_search_recursive(array, element):
-    """Recursive search a given element in array[]
+    """Binary Search (Recursive).
 
     Time Complexity:    O(log(n))
     Space Complexity:   O(log(n))

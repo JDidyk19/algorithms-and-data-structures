@@ -34,3 +34,5 @@ class BinarySearchTest(unittest.TestCase):
         self.assertEqual(binary_search_recursive(array, 628), 9)
 
 
+if __name__ == '__main__':
+    unittest.main()
