@@ -1,13 +1,12 @@
 
 
-def linear_search(element, array):
-    """TODO: To search a given element in arr[]
+def linear_search(array, element):
+    """To search a given element in array[]
 
-    Time Complexity: O(n)
-    Space Complexity: O(1)
+    Time Complexity:    O(n)
+    Space Complexity:   O(1)
     """
-    for idx in range(len(array)):
-        current = array[idx]
-        if current == element:
+    for idx, el in enumerate(array):
+        if el == element:
             return idx
     return -1
