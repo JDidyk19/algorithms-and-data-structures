@@ -4,8 +4,11 @@ def counting_sort(array):
     Time Complexity:    O(n + k)
     Space Complexity:   O(n + k)
     """
-    max_value = max(array)
-    counts = [0] * max_value + 1
+    if not array:
+        return []
+
+    max_value = max(array) + 1
+    counts = [0] * max_value
 
     for item in array:
         counts[item] += 1
