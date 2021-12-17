@@ -4,6 +4,9 @@ from algorithms.sorting.bubble_sort import bubble_sort
 
 
 class BubbleSortTest(unittest.TestCase):
+    def test_bubble_sort_sample(self):
+        self.assertEqual(bubble_sort([5, 10, 1]), [1, 5, 10])
+
     def test_bubble_sort_with_positive_numbers(self):
         self.assertEqual(bubble_sort([5, 5, 7, 8, 2, 4, 1]),
                          [1, 2, 4, 5, 5, 7, 8])

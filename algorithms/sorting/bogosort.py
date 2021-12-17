@@ -8,8 +8,8 @@ def is_sorted(array):
     return True
 
 
-def bogo_sort(array):
-    """Bogo sort.
+def bogosort(array):
+    """Bogosort.
 
     Time Complexity:    O((n-1)*n!)
     Space Complexity:   O(1)

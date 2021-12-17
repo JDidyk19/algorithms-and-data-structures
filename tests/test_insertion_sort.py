@@ -4,6 +4,9 @@ from algorithms.sorting.insertion_sort import insertion_sort
 
 
 class InsertionSortTest(unittest.TestCase):
+    def test_insertion_sort_sample(self):
+        self.assertEqual(insertion_sort([5, 10, 1]), [1, 5, 10])
+
     def test_insertion_sort_with_positive_numbers(self):
         self.assertEqual(insertion_sort([5, 5, 7, 8, 2, 4, 1]),
                          [1, 2, 4, 5, 5, 7, 8])

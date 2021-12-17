@@ -1,4 +1,4 @@
-def counting_sort(array):
+def counting_sort(array, max_value=None):
     """Counting sort.
 
     Time Complexity:    O(n + k)
@@ -7,7 +7,9 @@ def counting_sort(array):
     if not array:
         return []
 
-    max_value = max(array) + 1
+    if max_value is None:
+        max_value = max(array) + 1
+
     counts = [0] * max_value
 
     for item in array:

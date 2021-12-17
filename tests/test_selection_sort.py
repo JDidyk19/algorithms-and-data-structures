@@ -4,6 +4,9 @@ from algorithms.sorting.selection_sort import selection_sort
 
 
 class SelectionSortTest(unittest.TestCase):
+    def test_selection_sort_sample(self):
+        self.assertEqual(selection_sort([5, 10, 1]), [1, 5, 10])
+
     def test_selection_sort_with_positive_numbers(self):
         self.assertEqual(selection_sort([5, 5, 7, 8, 2, 4, 1]),
                          [1, 2, 4, 5, 5, 7, 8])
