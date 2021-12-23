@@ -8,15 +8,10 @@ class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+        self.size = 0
 
-    def size(self):
-        count = 0
-        current_node = self.head
-
-        while current_node:
-            count += 1
-            current_node = current_node.next
-        return count
+    def get_size(self):
+        return self.size
 
     def is_empty(self):
         return self.head is None
@@ -27,37 +22,35 @@ class LinkedList:
         if self.head is None and self.tail is None:
             self.head = new_node
             self.tail = new_node
-
         else:
             next_node = self.head
             self.head = new_node
             self.head.next = next_node
 
+        self.size += 1
         return self
 
     def pop_front(self):
         # when list is empty
-        if self.head is None:
-            return None
+        if self.is_empty():
+            raise IndexError('pop from empty list')
 
         # when list has 1 item
         if self.tail is None:
             head_node = self.head.value
             self.head = None
-            return head_node
-
         # when list has 2 items
-        if self.head.next is self.tail:
+        elif self.head.next is self.tail:
             head_node = self.head.value
             self.head = self.tail
             self.head.next = None
             self.tail = None
-            return head_node
+        else:
+            # when list has at least 3 items
+            head_node = self.head.value
+            self.head = self.head.next
 
-        # when list has at least 3 items
-        head_node = self.head.value
-        self.head = self.head.next
-
+        self.size -= 1
         return head_node
 
     def push_back(self, value):
@@ -66,59 +59,59 @@ class LinkedList:
         if self.head is None and self.tail is None:
             self.head = new_node
             self.tail = new_node
-
         else:
             self.tail.next = new_node
             self.tail = new_node
 
+        self.size += 1
         return self
 
     def pop_back(self):
         # when list is empty
-        if self.head is None:
-            return None
-
+        if self.is_empty():
+            raise IndexError('pop from empty list')
         # when list has 1 item
-        if self.head is self.tail:
-            head_node = self.head.value
+        elif self.tail is self.head:
+            tail_node = self.head.value
             self.head = None
-            return head_node
-
         # when list has 2 items
-        if self.head.next is self.tail:
+        elif self.head.next is self.tail:
             tail_node = self.tail.value
-            self.head.next = None
             self.tail = None
-            return tail_node
+            self.head.next = None
+        else:
+            # when list has at least 3 items
+            previous_node = None
+            current_node = self.head
 
-        # when list has at least 3 items
-        current_node = self.head
-        while current_node.next.next is not None:
-            current_node = current_node.next
+            while current_node.next is not None:
+                previous_node = current_node
+                current_node = current_node.next
 
-        tail_node = current_node.next.value
+            tail_node = self.tail.value
 
-        self.tail = current_node
-        current_node.next = None
+            self.tail = previous_node
+            previous_node.next = None
 
+        self.size -= 1
         return tail_node
 
     def top_front(self):
         if self.head is not None:
             return self.head.value
 
-        return None
+        raise IndexError('pop from empty list')
 
     def top_back(self):
         if self.tail is not None:
             return self.tail.value
 
-        return None
+        raise IndexError('pop from empty list')
 
     def erase(self, value):
         # when list is empty
-        if self.head is None:
-            return None
+        if self.is_empty():
+            raise IndexError('erase from empty list')
 
         deleted_node = None
         while self.head and self.head.value == value:
