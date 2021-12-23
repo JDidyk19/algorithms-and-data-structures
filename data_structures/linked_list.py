@@ -33,7 +33,7 @@ class LinkedList:
     def pop_front(self):
         # when list is empty
         if self.is_empty():
-            raise IndexError('pop from empty list')
+            raise IndexError('list is empty')
 
         # when list has 1 item
         if self.tail is None:
@@ -45,8 +45,8 @@ class LinkedList:
             self.head = self.tail
             self.head.next = None
             self.tail = None
+        # when list has at least 3 items
         else:
-            # when list has at least 3 items
             head_node = self.head.value
             self.head = self.head.next
 
@@ -69,7 +69,7 @@ class LinkedList:
     def pop_back(self):
         # when list is empty
         if self.is_empty():
-            raise IndexError('pop from empty list')
+            raise IndexError('list is empty')
         # when list has 1 item
         elif self.tail is self.head:
             tail_node = self.head.value
@@ -79,8 +79,8 @@ class LinkedList:
             tail_node = self.tail.value
             self.tail = None
             self.head.next = None
+        # when list has at least 3 items
         else:
-            # when list has at least 3 items
             previous_node = None
             current_node = self.head
 
@@ -100,18 +100,18 @@ class LinkedList:
         if self.head is not None:
             return self.head.value
 
-        raise IndexError('pop from empty list')
+        raise IndexError('list is empty')
 
     def top_back(self):
         if self.tail is not None:
             return self.tail.value
 
-        raise IndexError('pop from empty list')
+        raise IndexError('list is empty')
 
     def erase(self, value):
         # when list is empty
         if self.is_empty():
-            raise IndexError('erase from empty list')
+            raise IndexError('list is empty')
 
         deleted_node = None
         while self.head and self.head.value == value:
