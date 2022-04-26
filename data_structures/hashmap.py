@@ -1,5 +1,5 @@
 class HashMap:
-    def __init__(self, size=10):
+    def __init__(self, size=100):
         self.size = size
         self.buckets = [[] for _ in range(self.size)]
 
@@ -45,7 +45,4 @@ class HashMap:
                 return
 
     def __str__(self):
-        string = ''
-        for bucket in self.buckets:
-            string += f'{bucket}, '
-        return string.rstrip(', ')
+        return ', '.join([str(bucket) for bucket in self.buckets])
