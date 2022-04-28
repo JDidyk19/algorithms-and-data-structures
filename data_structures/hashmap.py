@@ -31,8 +31,7 @@ class HashMap:
                 bucket.append((key, val))
 
         else:
-            bucket = [(key, val)]
-            self.buckets[hashed_key] = bucket
+            bucket.append((key, val))
         return
 
     def __delitem__(self, key):
