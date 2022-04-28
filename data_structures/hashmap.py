@@ -10,11 +10,11 @@ class HashMap:
         return hash(key) % self.size
 
     def __getitem__(self, key):
-        hashed_key = self.__get_hash(key)
-        bucket = self.buckets[hashed_key]
+        hash_key = self.__get_hash(key)
+        bucket = self.buckets[hash_key]
         return bucket
 
     def __setitem__(self, key, val):
-        hashed_key = self.__get_hash(key)
-        bucket = self.buckets[hashed_key]
+        hash_key = self.__get_hash(key)
+        bucket = self.buckets[hash_key]
         bucket.push_back((key, val))
